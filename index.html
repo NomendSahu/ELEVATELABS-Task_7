@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Elevate Labs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles"></div>
+    
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>🚀 Elevate Labs</h1>
+                <p>Discover amazing people from around the world with us!</p>
+                <div class="live-stats">
+                    <div class="live-stat">
+                        <div class="live-stat-number" id="totalUsers">0</div>
+                        <div class="live-stat-label">Active Users</div>
+                    </div>
+                    <div class="live-stat">
+                        <div class="live-stat-number" id="loadTime">0ms</div>
+                        <div class="live-stat-label">Load Time</div>
+                    </div>
+                    <div class="live-stat">
+                        <div class="live-stat-number" id="onlineStatus">🟢</div>
+                        <div class="live-stat-label">Status</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-center">
+            <button class="control-btn" id="fetchBtn" onclick="fetchUsers()">
+                🎯 Fetch Users
+            </button>
+            <button class="control-btn" id="reloadBtn" onclick="reloadData()">
+                🔄 Reload Data
+            </button>
+            <button class="control-btn" id="randomBtn" onclick="shuffleUsers()">
+                🎲 Shuffle
+            </button>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search users by name, email, or city...">
+            <div class="search-icon">🔍</div>
+        </div>
+
+        <div class="filter-tabs">
+            <div class="filter-tab active" data-filter="all">🌟 All Users</div>
+            <div class="filter-tab" data-filter="online">🟢 Online</div>
+            <div class="filter-tab" data-filter="companies">🏢 Companies</div>
+            <div class="filter-tab" data-filter="cities">🏙️ Cities</div>
+        </div>
+
+        <div class="view-toggle">
+            <button class="view-btn active" data-view="grid">🎨 Grid View</button>
+            <button class="view-btn" data-view="list">📋 List View</button>
+        </div>
+
+        <div class="stats-dashboard" id="statsContainer" style="display: none;"></div>
+
+        <div class="loading-container" id="loadingContainer">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading amazing users...</div>
+            <div class="loading-progress">
+                <div class="loading-progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="error-container" id="errorContainer">
+            <div class="error-icon">⚠️</div>
+            <h3 id="errorTitle">Oops! Something went wrong</h3>
+            <p id="errorMessage">We encountered an issue while fetching user data.</p>
+            <button class="control-btn" onclick="retryFetch()" style="margin-top: 20px;">
+                🔁 Try Again
+            </button>
+        </div>
+
+        <div class="users-grid" id="usersContainer"></div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
